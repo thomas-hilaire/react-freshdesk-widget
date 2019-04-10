@@ -45,6 +45,7 @@ class FreshdeskWidget extends Component {
             formHeight,
             submitThanks,
             autofill,
+            customQueryStrings,
         } = this.props;
 
         const autofills = Object.entries(autofill).
@@ -54,6 +55,7 @@ class FreshdeskWidget extends Component {
             '&widgetType=popup',
             `formTitle=${formTitle}`,
             `submitThanks=${submitThanks}`,
+            ...(customQueryStrings || []),
             ...autofills,
         ].join('&');
 
@@ -100,7 +102,8 @@ class FreshdeskWidget extends Component {
             formTitle,
             submitThanks,
             formHeight,
-            autofill
+            autofill,
+            customQueryStrings,
         } = this.props;
 
         const autofills = Object.entries(autofill).
@@ -110,6 +113,7 @@ class FreshdeskWidget extends Component {
             '&widgetType=popup',
             `formTitle=${formTitle}`,
             `submitThanks=${submitThanks}`,
+            ...(customQueryStrings || []),
             ...autofills,
         ].join('&');
 
@@ -136,7 +140,14 @@ class FreshdeskWidget extends Component {
     }
 
     renderIncorporated() {
-        const { url, formTitle, formHeight, submitThanks, autofill } = this.props;
+        const {
+            url,
+            formTitle,
+            formHeight,
+            submitThanks,
+            autofill,
+            customQueryStrings,
+        } = this.props;
 
         const widgetUrl = `${url}/widgets/feedback_widget/new?`;
 
@@ -149,6 +160,7 @@ class FreshdeskWidget extends Component {
             `formTitle=${formTitle}`,
             `formHeight=${formHeight}`,
             `submitThanks=${submitThanks}`,
+            ...(customQueryStrings || []),
             ...autofills,
         ].join('&');
 
@@ -199,6 +211,7 @@ FreshdeskWidget.propTypes = {
     submitThanks: PropTypes.string,
     formHeight: PropTypes.string,
     autofill: PropTypes.objectOf(PropTypes.string),
+    customQueryStrings: PropTypes.arrayOf(PropTypes.string),
     children: PropTypes.oneOfType([
         PropTypes.arrayOf(PropTypes.node),
         PropTypes.node
@@ -217,6 +230,7 @@ FreshdeskWidget.defaultProps = {
     buttonPosition: 'top',
     buttonOffset: '235px',
     autofill: {},
+    customQueryStrings: [],
     children: null
 };
 

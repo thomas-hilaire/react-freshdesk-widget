@@ -1,5 +1,5 @@
 {
-  "name": "@personare/react-freshdesk-widget",
+  "name": "thomas-hilaire/react-freshdesk-widget",
   "version": "0.3.0",
   "description": "A component of React for use the Freshdesk Widget",
   "main": "dist/react-freshdesk-widget.js",

@@ -32,6 +32,7 @@ describe('<FreshdeskWidget />', function FreshdeskWidgetTests() {
         const formTitle = 'Help here';
         const formHeight = '200px';
         const submitThanks = 'Fine';
+        const customQueryString = 'searchArea=no';
 
         const wrapper = mount(
             <FreshdeskWidget
@@ -39,6 +40,7 @@ describe('<FreshdeskWidget />', function FreshdeskWidgetTests() {
                 formTitle={formTitle}
                 formHeight={formHeight}
                 submitThanks={submitThanks}
+                customQueryStrings={[customQueryString]}
             />
         );
 
@@ -49,7 +51,8 @@ describe('<FreshdeskWidget />', function FreshdeskWidgetTests() {
             'screenshot=no',
             `formTitle=${formTitle}`,
             `formHeight=${formHeight}`,
-            `submitThanks=${submitThanks}`
+            `submitThanks=${submitThanks}`,
+            customQueryString,
         ].join('&');
 
         expect(

@@ -40,6 +40,13 @@ storiesOf('Incorporated', module)
         autofill={{ requester: 'sample@domain.com' }}
 
     />
+))
+
+.add('(customQueryStrings) property', () => (
+    <FreshdeskWidget
+        url={supportUrl}
+        customQueryStrings={['searchArea=no']}
+    />
 ));
 
 storiesOf('Pop-up', module)
@@ -49,6 +56,12 @@ storiesOf('Pop-up', module)
 
 .add('With custom button', () => (
     <FreshdeskWidget url={supportUrl} type="pop-up">
+        <button>Send Feedback</button>
+    </FreshdeskWidget>
+))
+
+.add('With custom query strings', () => (
+    <FreshdeskWidget url={supportUrl} type="pop-up" customQueryStrings={['searchArea=no']}>
         <button>Send Feedback</button>
     </FreshdeskWidget>
 ));
